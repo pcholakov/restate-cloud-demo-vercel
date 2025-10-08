@@ -21,7 +21,7 @@ export const greeter = restate.service({
         // Durably execute a set of steps; resilient against failures
         const greetingId = ctx.rand.uuidv4();
 
-        throw Error("🐛");
+        // throw Error("🐛");
 
         await ctx.run("Notification", () => sendNotification(greetingId, name));
         await ctx.sleep({ seconds: 1 });
