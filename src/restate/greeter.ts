@@ -20,6 +20,9 @@ export const greeter = restate.service({
       async (ctx: restate.Context, { name }) => {
         // Durably execute a set of steps; resilient against failures
         const greetingId = ctx.rand.uuidv4();
+
+        throw Error("🐛");
+
         await ctx.run("Notification", () => sendNotification(greetingId, name));
         await ctx.sleep({ seconds: 1 });
         await ctx.run("Reminder", () => sendReminder(greetingId, name));
