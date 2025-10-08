@@ -23,7 +23,7 @@ export const greeter = restate.service({
 
         await ctx.run("Notification", () => sendNotification(greetingId, name));
 
-        throw Error("🐛");
+        // throw Error("🐛");
 
         await ctx.sleep({ seconds: 1 });
         await ctx.run("Reminder", () => sendReminder(greetingId, name));
